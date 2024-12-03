@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Under Working</title>
+  <link rel="icon" href="https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-thumbnail/s3/042021/ecorp.jpg?czS3id9CfFf28ptdqquqa.jqPrmAy.ub&itok=SR1746Wi" type="image/png">
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #0f0f1a;
+      font-family: 'Courier New', Courier, monospace;
+      overflow: hidden;
+      flex-direction: column; /* لجعل العناصر تظهر بشكل عمودي */
+    }
+
+    .container {
+      text-align: center;
+      position: relative;
+    }
+
+    .text {
+      font-size: 1.5rem; 
+      color: #00f; 
+      background: linear-gradient(90deg, #0073ff, #00c6ff, #0073ff);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientMove 3s infinite;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .text:hover {
+      transform: scale(1.1);
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .cursor {
+      font-size: 1.5rem; 
+      color: #0073ff; 
+      animation: blink 1s step-start infinite;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <span class="text" id="animatedText">Under Working</span>
+    <span class="cursor">[~]</span>
+  </div>
+
+  <script>
+    const textElement = document.getElementById("animatedText");
+    const textContent = " - Under Working - ";
+
+    let index = 0;
+
+    function typeEffect() {
+      if (index < textContent.length) {
+        textElement.textContent = textContent.slice(0, ++index);
+        setTimeout(typeEffect, 100);
+      }
+    }
+
+    window.onload = typeEffect;
+  </script>
+</body>
+</html>
